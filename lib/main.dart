@@ -1,5 +1,6 @@
 import 'package:debunk/global/public.dart';
 import 'package:debunk/pages/register/register_detail.dart';
+import 'package:debunk/pages/test/test.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'pages/index/index.dart';
@@ -42,17 +43,18 @@ class MyApp extends StatelessWidget {
           Locale('en', 'Us'),
         ],
         //路由
-        initialRoute: '/registerDetail',
+        initialRoute: '/imagePicker',
         routes: {
           '/': (context) => MainPage(
                 notLogin: const IndexPage(), //主页
                 hadLogin: HomePage(), //首页
               ),
           // '/index': (context) => const IndexPage(),
+          // '/home': (context) => HomePage(),
           '/login': (context) => const LoginPage(), //登录页
           '/register': (context) => RegisterPage(), //注册页
           '/registerDetail': (context) => RegisterDetail(), //设置注册信息
-          // '/home': (context) => HomePage(),
+          '/imagePicker': (context) => ImagePickerPage(),
         },
       ),
     );

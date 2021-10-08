@@ -47,6 +47,7 @@ dependencies:
   get: ^4.3.8
   # 拍照上传+选择相册图片
   image_picker: ^0.8.4+1
+  
 
 dev_dependencies:
   flutter_test:

@@ -17,10 +17,11 @@ class RegisterDetail extends StatelessWidget {
     return Scaffold(
       backgroundColor: GlobalColor.mainColor,
       body: Padding(
-          padding: EdgeInsets.only(
-            top: 103.h,
-            bottom: 265.h,
-          ),
+        padding: EdgeInsets.only(
+          top: 103.h,
+          bottom: 265.h,
+        ),
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -28,88 +29,83 @@ class RegisterDetail extends StatelessWidget {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    Get.bottomSheet(Container(
-                      height: 185.h,
-                      decoration: BoxDecoration(
-                        color: GlobalColor.bgColor2,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.w),
-                            topRight: Radius.circular(20.w)),
+                    Get.bottomSheet(
+                      Container(
+                        child: ListView(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                print('拍照上传');
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  top: 15.h,
+                                  bottom: 15.h,
+                                ),
+                                child: Text(
+                                  '拍照上传',
+                                  style: TextStyle(
+                                    fontSize: 16.w,
+                                    color: GlobalColor.titleColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                            Divider(
+                              height: 1,
+                              color: GlobalColor.dividColor,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                print('从相册中选择');
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  top: 14.h,
+                                  bottom: 15.h,
+                                ),
+                                child: Text(
+                                  '从相册中选择',
+                                  style: TextStyle(
+                                    fontSize: 16.w,
+                                    color: GlobalColor.titleColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                            Divider(
+                              height: 9.w,
+                              color: GlobalColor.bgColor3,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                print('取消');
+                                Get.back();
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  top: 15.h,
+                                  bottom: 14.h,
+                                ),
+                                child: Text(
+                                  '取消',
+                                  style: TextStyle(
+                                    fontSize: 16.w,
+                                    color: GlobalColor.titleColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      child: ListView(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              print('拍照上传');
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                top: 15.h,
-                                bottom: 15.h,
-                              ),
-                              child: Text(
-                                '拍照上传',
-                                style: TextStyle(
-                                  fontSize: 16.w,
-                                  color: GlobalColor.titleColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                          Divider(
-                            height: 1,
-                            color: GlobalColor.dividColor,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              print('从相册中选择');
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                top: 14.h,
-                                bottom: 15.h,
-                              ),
-                              child: Text(
-                                '从相册中选择',
-                                style: TextStyle(
-                                  fontSize: 16.w,
-                                  color: GlobalColor.titleColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                          Divider(
-                            height: 9.w,
-                            color: GlobalColor.bgColor3,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              print('取消');
-                              Get.back();
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                top: 15.h,
-                                bottom: 14.h,
-                              ),
-                              child: Text(
-                                '取消',
-                                style: TextStyle(
-                                  fontSize: 16.w,
-                                  color: GlobalColor.titleColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ));
+                    );
                   },
                   child: Image.asset(
                     'assets/default_logo.png',
@@ -262,7 +258,9 @@ class RegisterDetail extends StatelessWidget {
                 ),
               ),
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
